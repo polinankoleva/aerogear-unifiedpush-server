@@ -32,9 +32,9 @@ import static org.jboss.aerogear.unifiedpush.kafka.KafkaClusterConfig.KAFKA_INST
  * invocation of {@link PushMessageMetricsService#updateAnalytics(String, String)}.
  * 
  */
-public class InstallationMetricsKafkaConsumer {
+public class InstallationMetricsConsumer {
 
-    private final Logger logger = LoggerFactory.getLogger(InstallationMetricsKafkaConsumer.class);
+    private final Logger logger = LoggerFactory.getLogger(InstallationMetricsConsumer.class);
 
     @Inject
     private PushMessageMetricsService metricsService;
@@ -44,7 +44,7 @@ public class InstallationMetricsKafkaConsumer {
      * id.
      */
     @Consumer(topic = KAFKA_INSTALLATION_TOPIC, groupId = KAFKA_INSTALLATION_TOPIC_CONSUMER_GROUP_ID)
-    public void receiver(final String pushMessageId, final String variantId) {
+    public void consume(final String pushMessageId, final String variantId) {
         logger.info("Update metric analytics for push message's ID {} and variant's ID {}", pushMessageId, variantId);
         metricsService.updateAnalytics(pushMessageId, variantId);
     }

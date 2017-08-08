@@ -38,8 +38,8 @@ import java.util.Properties;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
-
 public class PubSubTest {
+	
     private KafkaConsumer consumer;
     private KafkaProducer producer;
     private File dataDir;
