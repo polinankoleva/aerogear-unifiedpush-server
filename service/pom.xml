@@ -48,7 +48,8 @@
             <artifactId>unifiedpush-common</artifactId>
             <version>${project.version}</version>
             <scope>compile</scope>
-        </dependency>
+        </dependency> 
+        
         <dependency>
             <groupId>org.jboss.aerogear.unifiedpush</groupId>
             <artifactId>unifiedpush-model-jpa</artifactId>
@@ -115,6 +116,7 @@
                     <artifactId>h2</artifactId>
                     <scope>test</scope>
                 </dependency>
+                
                 <dependency>
                     <groupId>org.slf4j</groupId>
                     <artifactId>slf4j-log4j12</artifactId>

@@ -1,3 +1,4 @@
+package org.jboss.aerogear.unifiedpush.message.kafka.serdes;
 /**
  * JBoss, Home of Professional Open Source
  * Copyright Red Hat, Inc., and individual contributors.
@@ -14,7 +15,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.jboss.aerogear.unifiedpush.kafka.serdes;
 
 import net.wessendorf.kafka.serialization.GenericDeserializer;
 import net.wessendorf.kafka.serialization.GenericSerializer;

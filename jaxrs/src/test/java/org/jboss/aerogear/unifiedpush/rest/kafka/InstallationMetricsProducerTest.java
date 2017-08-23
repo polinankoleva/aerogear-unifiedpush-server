@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.jboss.aerogear.unifiedpush.kafka.producers;
+package org.jboss.aerogear.unifiedpush.rest.kafka;
 
 import static org.junit.Assert.assertEquals;
 
@@ -26,9 +26,8 @@ import javax.inject.Inject;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.apache.kafka.clients.consumer.ConsumerRecords;
 import org.apache.kafka.clients.consumer.KafkaConsumer;
-import org.jboss.aerogear.unifiedpush.kafka.BasicKafkaTest;
+import org.jboss.aerogear.unifiedpush.kafka.KafkaBaseTest;
 import org.jboss.aerogear.unifiedpush.kafka.KafkaClusterConfig;
-import org.jboss.aerogear.unifiedpush.kafka.utils.MockProviders;
 import org.jboss.aerogear.unifiedpush.rest.AbstractBaseEndpoint;
 import org.jboss.aerogear.unifiedpush.rest.registry.installations.InstallationRegistrationEndpoint;
 import org.jboss.arquillian.container.test.api.Deployment;
@@ -43,7 +42,7 @@ import org.junit.runner.RunWith;
  * Test cases for {@link InstallationRegistrationEndpoint#getInstallationMetricsProducer()} object.
  */
 @RunWith(Arquillian.class)
-public class InstallationMetricsProducerTest extends BasicKafkaTest {
+public class InstallationMetricsProducerTest extends KafkaBaseTest {
 
     private KafkaConsumer<?, ?> consumer;
 

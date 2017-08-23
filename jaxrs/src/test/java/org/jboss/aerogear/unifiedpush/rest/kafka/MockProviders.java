@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.jboss.aerogear.unifiedpush.kafka.utils;
+package org.jboss.aerogear.unifiedpush.rest.kafka;
 
 import static org.mockito.Mockito.mock;
 import javax.enterprise.inject.Produces;

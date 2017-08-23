@@ -14,18 +14,19 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.jboss.aerogear.unifiedpush.kafka.consumers;
+package org.jboss.aerogear.unifiedpush.rest.kafka;
 
 import java.util.UUID;
 import java.util.concurrent.CountDownLatch;
 
 import javax.enterprise.event.Observes;
 import javax.inject.Inject;
-import org.jboss.aerogear.unifiedpush.kafka.utils.MockProviders;
-import org.jboss.aerogear.unifiedpush.kafka.BasicKafkaTest;
+
+import org.jboss.aerogear.unifiedpush.kafka.KafkaBaseTest;
 import org.jboss.aerogear.unifiedpush.kafka.KafkaClusterConfig;
 import org.jboss.aerogear.unifiedpush.kafka.MessageConsumedEvent;
 import org.jboss.aerogear.unifiedpush.rest.AbstractBaseEndpoint;
+import org.jboss.aerogear.unifiedpush.rest.registry.installations.KafkaInstallationMetricsConsumer;
 import org.jboss.aerogear.unifiedpush.rest.registry.installations.InstallationRegistrationEndpoint;
 import org.jboss.aerogear.unifiedpush.service.metrics.PushMessageMetricsService;
 import org.jboss.arquillian.container.test.api.Deployment;
@@ -45,7 +46,7 @@ import net.wessendorf.kafka.impl.DelegationKafkaConsumer;
  * Test cases for {@link InstallationMetricsConsumer#consume(String)} method.
  */
 @RunWith(Arquillian.class)
-public class InstallationMetricsConsumerTest extends BasicKafkaTest {
+public class InstallationMetricsConsumerTest extends KafkaBaseTest {
 
     private boolean isMethodCalled = Boolean.FALSE;
     private static CountDownLatch countDownLatch;
@@ -61,7 +62,7 @@ public class InstallationMetricsConsumerTest extends BasicKafkaTest {
                 // add Kafka configurations
                 .addClass(KafkaClusterConfig.class)
                 // add the consumer that is tested
-                .addClass(InstallationMetricsKafkaConsumer.class)
+                .addClass(KafkaInstallationMetricsConsumer.class)
                 // add a container for all mock providers
                 .addPackage(MockProviders.class.getPackage())
                 // needed to the cdi library

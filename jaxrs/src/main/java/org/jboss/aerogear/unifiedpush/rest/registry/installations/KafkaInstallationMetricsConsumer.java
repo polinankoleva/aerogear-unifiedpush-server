@@ -14,12 +14,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.jboss.aerogear.unifiedpush.kafka.consumers;
+package org.jboss.aerogear.unifiedpush.rest.registry.installations;
+
+import org.jboss.aerogear.unifiedpush.kafka.KafkaClusterConfig;
 
 import javax.enterprise.event.Event;
 import javax.inject.Inject;
 
-import org.jboss.aerogear.unifiedpush.kafka.KafkaClusterConfig;
 import org.jboss.aerogear.unifiedpush.kafka.MessageConsumedEvent;
 import org.jboss.aerogear.unifiedpush.service.metrics.PushMessageMetricsService;
 import org.slf4j.Logger;
@@ -27,17 +28,14 @@ import org.slf4j.LoggerFactory;
 
 import net.wessendorf.kafka.cdi.annotation.Consumer;
 
-import static org.jboss.aerogear.unifiedpush.kafka.KafkaClusterConfig.KAFKA_INSTALLATION_TOPIC;
-import static org.jboss.aerogear.unifiedpush.kafka.KafkaClusterConfig.KAFKA_INSTALLATION_TOPIC_CONSUMER_GROUP_ID;
-
 /**
  * Kafka Consumer that reads PushMessageID from {@link KafkaClusterConfig#KAFKA_INSTALLATION_TOPIC} topic and updates analytics
  * by invocation of {@link PushMessageMetricsService#updateAnalytics(String)}. When a message is consumed and processed
  * {@link MessageConsumedEvent} is fired.
  */
-public class InstallationMetricsKafkaConsumer {
+public class KafkaInstallationMetricsConsumer {
 
-    private final Logger logger = LoggerFactory.getLogger(InstallationMetricsKafkaConsumer.class);
+    private final Logger logger = LoggerFactory.getLogger(KafkaInstallationMetricsConsumer.class);
 
     @Inject
     private PushMessageMetricsService metricsService;
@@ -48,7 +46,7 @@ public class InstallationMetricsKafkaConsumer {
     /**
      * Update metrics analytics based on push message id from the consumed record.
      */
-    @Consumer(topics = KAFKA_INSTALLATION_TOPIC, groupId = KAFKA_INSTALLATION_TOPIC_CONSUMER_GROUP_ID)
+    @Consumer(topics = KafkaClusterConfig.KAFKA_INSTALLATION_TOPIC, groupId = KafkaClusterConfig.KAFKA_INSTALLATION_TOPIC_CONSUMER_GROUP_ID)
     public void consume(final String aerogearPushId) {
         logger.info("Update metric analytics for aerogear push ID {}.", aerogearPushId);
         metricsService.updateAnalytics(aerogearPushId);

@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.jboss.aerogear.unifiedpush.kafka.streams;
+package org.jboss.aerogear.unifiedpush.message.kafka;
 
 import javax.annotation.PreDestroy;
 import javax.enterprise.context.ApplicationScoped;
@@ -36,10 +36,10 @@ import org.jboss.aerogear.unifiedpush.api.PushApplication;
 import org.jboss.aerogear.unifiedpush.api.Variant;
 import org.jboss.aerogear.unifiedpush.api.VariantType;
 import org.jboss.aerogear.unifiedpush.kafka.KafkaClusterConfig;
-import org.jboss.aerogear.unifiedpush.kafka.serdes.InternalUnifiedPushMessageSerde;
-import org.jboss.aerogear.unifiedpush.kafka.serdes.PushApplicationSerde;
 import org.jboss.aerogear.unifiedpush.message.InternalUnifiedPushMessage;
 import org.jboss.aerogear.unifiedpush.message.holder.MessageHolderWithVariants;
+import org.jboss.aerogear.unifiedpush.message.kafka.serdes.InternalUnifiedPushMessageSerde;
+import org.jboss.aerogear.unifiedpush.message.kafka.serdes.PushApplicationSerde;
 import org.jboss.aerogear.unifiedpush.service.GenericVariantService;
 import org.jboss.aerogear.unifiedpush.service.metrics.PushMessageMetricsService;
 import org.slf4j.Logger;

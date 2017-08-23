@@ -25,8 +25,16 @@
 
     <artifactId>unifiedpush-jaxrs</artifactId>
     <name>UnifiedPush RESTful Endpoint</name>
-
+    
     <dependencies>
+    
+        <dependency>
+            <groupId>javax</groupId>
+            <artifactId>javaee-api</artifactId>
+            <version>7.0</version>
+            <scope>provided</scope>
+        </dependency>
+        
         <dependency>
             <groupId>javax.enterprise</groupId>
             <artifactId>cdi-api</artifactId>
@@ -51,6 +59,13 @@
             <scope>provided</scope>
         </dependency>
 
+        <dependency>
+            <groupId>org.jboss.aerogear.unifiedpush</groupId>
+            <artifactId>unifiedpush-common</artifactId>
+            <version>${project.version}</version>
+            <scope>provided</scope>
+        </dependency> 
+                
         <dependency>
             <groupId>org.jboss.aerogear.unifiedpush</groupId>
             <artifactId>unifiedpush-service</artifactId>
@@ -93,6 +108,11 @@
             <groupId>net.wessendorf.kafka</groupId>
             <artifactId>kafka-cdi-extension</artifactId>
             <version>${kafka.cdi.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-core</artifactId>
         </dependency>
 
         <dependency>
@@ -201,12 +221,12 @@
                     <scope>test</scope>
                 </dependency>
 
-                <dependency>
+				<dependency>
                     <groupId>org.assertj</groupId>
                     <artifactId>assertj-core</artifactId>
                     <scope>test</scope>
                 </dependency>
-
+        
                 <dependency>
                     <groupId>org.mockito</groupId>
                     <artifactId>mockito-core</artifactId>
@@ -218,6 +238,56 @@
                     <artifactId>hibernate-validator</artifactId>
                     <version>4.2.0.Final</version>
                 </dependency>
+        
+                <dependency>
+                    <groupId>org.jboss.aerogear.unifiedpush</groupId>
+                    <artifactId>unifiedpush-common</artifactId>
+                    <version>${project.version}</version>
+                    <type>test-jar</type>
+                    <scope>test</scope>
+                </dependency>
+    
+                <dependency>
+                    <groupId>org.jboss.arquillian.junit</groupId>
+                    <artifactId>arquillian-junit-container</artifactId>
+                </dependency>
+
+                <dependency>
+                    <groupId>org.jboss.arquillian.container</groupId>
+                    <artifactId>arquillian-weld-ee-embedded-1.1</artifactId>
+                    <version>1.0.0.Final</version>
+                    <scope>test</scope>
+                </dependency>
+
+                <dependency>
+                    <groupId>org.jboss.weld</groupId>
+                    <artifactId>weld-core</artifactId>
+                    <version>2.3.5.Final</version>
+                    <scope>test</scope>
+                </dependency>
+                
+                <dependency>
+                    <groupId>org.apache.kafka</groupId>
+                    <artifactId>kafka_2.11</artifactId>
+                    <version>${kafka.clients.version}</version>
+                    <scope>test</scope>
+                </dependency>
+        
+                <dependency>
+                    <groupId>io.debezium</groupId>
+                    <artifactId>debezium-core</artifactId>
+                    <version>${debezium.version}</version>
+                    <scope>test</scope>
+                </dependency> 
+
+                <dependency>
+                    <groupId>io.debezium</groupId>
+                    <artifactId>debezium-core</artifactId>
+                    <version>${debezium.version}</version>
+                    <type>test-jar</type>
+                    <scope>test</scope>
+                </dependency> 
+                
             </dependencies>
         </profile>
     </profiles>

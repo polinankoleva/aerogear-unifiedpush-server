@@ -18,7 +18,6 @@ package org.jboss.aerogear.unifiedpush.kafka;
 
 import java.io.IOException;
 
-import org.jboss.aerogear.unifiedpush.kafka.consumers.InstallationMetricsConsumerTest;
 import org.junit.After;
 import org.junit.Before;
 
@@ -26,7 +25,7 @@ import org.junit.Before;
  * Basic class that starts up a Kafka cluster before each test case and stops it afterwards. Each test class that uses embedded
  * Kafka cluster has to extend this. See usage {@link InstallationMetricsConsumerTest}.
  */
-public class BasicKafkaTest {
+public class KafkaBaseTest {
 
     protected KafkaClusterWrapper kafkaCluster = new KafkaClusterWrapper();
     /**
